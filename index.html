@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Méthode SOA avec ESB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Application Méthode SOA avec ESB</h1>
+            <p>Implémentation pratique de l'architecture orientée services avec bus d'entreprise</p>
+        </header>
+
+        <!-- Architecture Visuelle -->
+        <div class="architecture">
+            <!-- ESB Central -->
+            <div class="esb" id="esb">
+                <div class="esb-title">BUS ESB</div>
+                <div class="esb-messages" id="esb-messages"></div>
+            </div>
+
+            <!-- Services -->
+            <div class="services-grid">
+                <div class="service-module" id="service-gestion">
+                    <h3>Service Gestion Clients</h3>
+                    <div class="service-controls">
+                        <button onclick="appelerService('gestion', 'creerClient')">Créer Client</button>
+                        <button onclick="appelerService('gestion', 'listerClients')">Lister Clients</button>
+                    </div>
+                    <div class="service-data" id="data-gestion"></div>
+                </div>
+
+                <div class="service-module" id="service-ventes">
+                    <h3>Service Gestion Ventes</h3>
+                    <div class="service-controls">
+                        <button onclick="appelerService('ventes', 'creerVente')">Créer Vente</button>
+                        <button onclick="appelerService('ventes', 'historiqueVentes')">Historique</button>
+                    </div>
+                    <div class="service-data" id="data-ventes"></div>
+                </div>
+
+                <div class="service-module" id="service-stock">
+                    <h3>Service Gestion Stock</h3>
+                    <div class="service-controls">
+                        <button onclick="appelerService('stock', 'verifierStock')">Vérifier Stock</button>
+                        <button onclick="appelerService('stock', 'majStock')">Mettre à Jour</button>
+                    </div>
+                    <div class="service-data" id="data-stock"></div>
+                </div>
+
+                <div class="service-module" id="service-facturation">
+                    <h3>Service Facturation</h3>
+                    <div class="service-controls">
+                        <button onclick="appelerService('facturation', 'genererFacture')">Générer Facture</button>
+                        <button onclick="appelerService('facturation', 'facturesEnAttente')">Factures en Attente</button>
+                    </div>
+                    <div class="service-data" id="data-facturation"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processus Métier -->
+        <div class="business-process">
+            <h2>Processus Métier Complet</h2>
+            <div class="process-controls">
+                <button onclick="executerProcessusComplet()">Exécuter Processus Vente Complète</button>
+                <button onclick="reinitialiserSysteme()">Réinitialiser Système</button>
+            </div>
+            <div class="process-logs" id="process-logs"></div>
+        </div>
+
+        <!-- Monitoring ESB -->
+        <div class="monitoring">
+            <h2>Monitoring ESB - Messages en Temps Réel</h2>
+            <div class="message-log" id="message-log">
+                <div class="log-entry">Système initialisé - ESB prêt à router les messages</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
